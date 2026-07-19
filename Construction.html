@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronPeak Construction</title>
+
+<style>
+/* ===== RESET ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f3f4f6;
+    color:#222;
+    line-height:1.6;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ===== HEADER ===== */
+
+header{
+    background:#111827;
+    padding:18px 0;
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-size:2rem;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#f97316;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:28px;
+}
+
+nav a{
+    color:white;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#f97316;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+    min-height:95vh;
+    background:
+    linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.72)),
+    url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1600&auto=format&fit=crop')
+    center/cover;
+    display:flex;
+    align-items:center;
+    color:white;
+}
+
+.hero-content{
+    max-width:720px;
+}
+
+.hero h1{
+    font-size:4.4rem;
+    line-height:1.05;
+    margin-bottom:24px;
+}
+
+.hero p{
+    font-size:1.1rem;
+    margin-bottom:35px;
+    color:#d1d5db;
+}
+
+.btn{
+    display:inline-block;
+    padding:16px 34px;
+    border-radius:8px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#f97316;
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#fb923c;
+    transform:translateY(-3px);
+}
+
+/* ===== SECTIONS ===== */
+
+section{
+    padding:100px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    max-width:700px;
+    margin:auto;
+    color:#666;
+}
+
+/* ===== SERVICES ===== */
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.service-card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.service-card:hover{
+    transform:translateY(-8px);
+}
+
+.service-card img{
+    height:220px;
+    width:100%;
+    object-fit:cover;
+}
+
+.service-content{
+    padding:28px;
+}
+
+.service-content h3{
+    margin-bottom:14px;
+    font-size:1.5rem;
+}
+
+/* ===== ABOUT ===== */
+
+.about{
+    background:#111827;
+    color:white;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:60px;
+    align-items:center;
+}
+
+.about-content h2{
+    font-size:3rem;
+    margin-bottom:22px;
+}
+
+.about-content p{
+    margin-bottom:20px;
+    color:#d1d5db;
+}
+
+.about-image img{
+    border-radius:20px;
+}
+
+/* ===== STATS ===== */
+
+.stats{
+    background:#f97316;
+    color:white;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+    text-align:center;
+}
+
+.stat-box h3{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+/* ===== PROJECTS ===== */
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.projects-grid img{
+    height:260px;
+    width:100%;
+    object-fit:cover;
+    border-radius:16px;
+    transition:.3s;
+}
+
+.projects-grid img:hover{
+    transform:scale(1.03);
+}
+
+/* ===== CONTACT ===== */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:50px;
+}
+
+.contact-info h3{
+    font-size:2.4rem;
+    margin-bottom:20px;
+}
+
+.contact-info p{
+    margin-bottom:15px;
+    color:#555;
+}
+
+form{
+    background:white;
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+form input,
+form textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:18px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    font-family:inherit;
+}
+
+form textarea{
+    min-height:140px;
+    resize:vertical;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    background:#111827;
+    color:#9ca3af;
+    text-align:center;
+    padding:30px 20px;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:3rem;
+}
+
+.section-title h2,
+.about-content h2{
+    font-size:2.2rem;
+}
+
+.navbar{
+    flex-direction:column;
+    gap:18px;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container navbar">
+
+<div class="logo">
+IRON<span>PEAK</span>
+</div>
+
+<nav>
+<ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+</div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="hero-content">
+
+<h1>
+Reliable Construction Services For Residential & Commercial Projects
+</h1>
+
+<p>
+Professional remodeling, renovations, roofing, framing, concrete,
+and full-service construction solutions built with quality craftsmanship.
+</p>
+
+<a href="#contact" class="btn btn-primary">
+Get Free Estimate
+</a>
+
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Construction Services</h2>
+
+<p>
+Comprehensive construction solutions designed for durability,
+efficiency, and long-lasting results.
+</p>
+
+</div>
+
+<div class="services-grid">
+
+<div class="service-card">
+
+<img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop">
+
+<div class="service-content">
+<h3>New Construction</h3>
+
+<p>
+Ground-up residential and commercial construction projects completed
+with precision and attention to detail.
+</p>
+</div>
+
+</div>
+
+<div class="service-card">
+
+<img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=1200&auto=format&fit=crop">
+
+<div class="service-content">
+<h3>Concrete & Foundations</h3>
+
+<p>
+Driveways, foundations, slabs, patios, and structural concrete work
+for all property types.
+</p>
+</div>
+
+</div>
+
+<div class="service-card">
+
+<img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?q=80&w=1200&auto=format&fit=crop">
+
+<div class="service-content">
+<h3>Roofing Services</h3>
+
+<p>
+Roof repairs, replacements, inspections,
+and weather-resistant roofing systems.
+</p>
+</div>
+
+</div>
+
+<div class="service-card">
+
+<img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop">
+
+<div class="service-content">
+<h3>Home Remodeling</h3>
+
+<p>
+Kitchen remodels, bathroom renovations,
+flooring, painting, and interior upgrades.
+</p>
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<div class="container">
+
+<div class="about-grid">
+
+<div class="about-content">
+
+<h2>Built On Quality & Trust</h2>
+
+<p>
+IronPeak Construction delivers dependable craftsmanship,
+transparent communication, and professional project management.
+</p>
+
+<p>
+Our experienced construction team handles residential and commercial
+projects of all sizes with a commitment to excellence.
+</p>
+
+<a href="#contact" class="btn btn-primary">
+Schedule Consultation
+</a>
+
+</div>
+
+<div class="about-image">
+
+<img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1400&auto=format&fit=crop">
+
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="container">
+
+<div class="stats-grid">
+
+<div class="stat-box">
+<h3>25+</h3>
+<p>Years Experience</p>
+</div>
+
+<div class="stat-box">
+<h3>2,000+</h3>
+<p>Projects Completed</p>
+</div>
+
+<div class="stat-box">
+<h3>100%</h3>
+<p>Licensed & Insured</p>
+</div>
+
+<div class="stat-box">
+<h3>24/7</h3>
+<p>Client Support</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Featured Projects</h2>
+
+<p>
+A showcase of recent residential and commercial construction work.
+</p>
+
+</div>
+
+<div class="projects-grid">
+
+<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="contact-grid">
+
+<div class="contact-info">
+
+<h3>Contact IronPeak</h3>
+
+<p><strong>Phone:</strong> (555) 555-1002</p>
+<p><strong>Email:</strong> info@ironpeakconstruction.com</p>
+<p><strong>Location:</strong> Louisiana, USA</p>
+<p><strong>Hours:</strong> Mon-Sat • 7AM - 7PM</p>
+
+<p>
+Contact our construction team today for remodeling,
+roofing, renovations, and new construction services.
+</p>
+
+</div>
+
+<form>
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="tel" placeholder="Phone Number">
+
+<textarea placeholder="Describe your construction project"></textarea>
+
+<button type="submit" class="btn btn-primary">
+Submit Request
+</button>
+
+</form>
+
+</div>
+</div>
+</section>
+
+<footer>
+<p>
+© 2026 IronPeak Construction Services. All Rights Reserved.
+</p>
+</footer>
+
+</body>
+</html>

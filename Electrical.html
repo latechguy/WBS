@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VoltEdge Electrical Services</title>
+
+<style>
+
+/* ===== RESET ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Tahoma, Geneva, sans-serif;
+    background:#0d1117;
+    color:#ffffff;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+/* ===== HEADER ===== */
+
+header{
+    background:#111827;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 0;
+}
+
+.logo{
+    font-size:2rem;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#facc15;
+}
+
+nav ul{
+    display:flex;
+    gap:32px;
+    list-style:none;
+}
+
+nav a{
+    color:#e5e7eb;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#facc15;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+    padding:100px 0;
+    background:
+    radial-gradient(circle at top right, rgba(250,204,21,.2), transparent 30%),
+    linear-gradient(135deg,#0f172a,#111827,#1e293b);
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:50px;
+    align-items:center;
+}
+
+.hero-left h1{
+    font-size:5rem;
+    line-height:1;
+    margin-bottom:25px;
+}
+
+.hero-left p{
+    font-size:1.15rem;
+    color:#cbd5e1;
+    line-height:1.9;
+    margin-bottom:35px;
+    max-width:650px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:16px 34px;
+    border-radius:12px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#facc15;
+    color:#111827;
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    background:#fde047;
+}
+
+.btn-secondary{
+    border:2px solid #facc15;
+    color:#facc15;
+}
+
+.btn-secondary:hover{
+    background:#facc15;
+    color:#111827;
+}
+
+.hero-card{
+    background:#111827;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:28px;
+    padding:35px;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+
+.hero-card img{
+    border-radius:20px;
+    margin-bottom:25px;
+    height:340px;
+    object-fit:cover;
+    width:100%;
+}
+
+.hero-card h3{
+    font-size:2rem;
+    margin-bottom:15px;
+}
+
+.hero-card p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* ===== FEATURES ===== */
+
+.features{
+    padding:100px 0;
+    background:#111827;
+}
+
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.feature-box{
+    background:#1e293b;
+    border-radius:22px;
+    padding:40px 30px;
+    border:1px solid rgba(255,255,255,.05);
+    transition:.3s;
+}
+
+.feature-box:hover{
+    transform:translateY(-8px);
+    border-color:#facc15;
+}
+
+.feature-icon{
+    font-size:3rem;
+    margin-bottom:20px;
+    color:#facc15;
+}
+
+.feature-box h3{
+    margin-bottom:15px;
+    font-size:1.5rem;
+}
+
+.feature-box p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* ===== SERVICES ===== */
+
+.services{
+    padding:110px 0;
+    background:#0f172a;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title h2{
+    font-size:3.3rem;
+    margin-bottom:18px;
+}
+
+.section-title p{
+    color:#cbd5e1;
+    max-width:750px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.services-layout{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+.service-panel{
+    background:#111827;
+    border-radius:24px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.06);
+    transition:.3s;
+}
+
+.service-panel:hover{
+    transform:scale(1.02);
+}
+
+.service-panel img{
+    height:280px;
+    width:100%;
+    object-fit:cover;
+}
+
+.service-content{
+    padding:35px;
+}
+
+.service-content h3{
+    font-size:2rem;
+    margin-bottom:15px;
+}
+
+.service-content p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* ===== PROCESS ===== */
+
+.process{
+    padding:110px 0;
+    background:#111827;
+}
+
+.process-timeline{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+.step{
+    text-align:center;
+    padding:35px;
+}
+
+.step-number{
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    background:#facc15;
+    color:#111827;
+    font-size:2rem;
+    font-weight:800;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto auto 25px;
+}
+
+.step h3{
+    margin-bottom:15px;
+    font-size:1.5rem;
+}
+
+.step p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* ===== CONTACT ===== */
+
+.contact{
+    padding:110px 0;
+    background:#0f172a;
+}
+
+.contact-layout{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:40px;
+}
+
+.contact-sidebar{
+    background:#facc15;
+    color:#111827;
+    border-radius:28px;
+    padding:50px;
+}
+
+.contact-sidebar h3{
+    font-size:2.5rem;
+    margin-bottom:25px;
+}
+
+.contact-sidebar p{
+    margin-bottom:18px;
+    line-height:1.8;
+}
+
+.contact-form{
+    background:#111827;
+    border-radius:28px;
+    padding:50px;
+}
+
+.contact-form h3{
+    font-size:2.5rem;
+    margin-bottom:25px;
+}
+
+form input,
+form textarea{
+    width:100%;
+    padding:18px;
+    margin-bottom:20px;
+    border:none;
+    border-radius:12px;
+    background:#1e293b;
+    color:white;
+    font-family:inherit;
+}
+
+form textarea{
+    min-height:170px;
+    resize:vertical;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    background:#020617;
+    text-align:center;
+    padding:35px 20px;
+    color:#94a3b8;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:950px){
+
+.hero-grid,
+.contact-layout,
+.services-layout{
+    grid-template-columns:1fr;
+}
+
+.hero-left h1{
+    font-size:3.4rem;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+}
+
+nav ul{
+    gap:18px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.navbar{
+    flex-direction:column;
+    gap:20px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+VOLT<span>EDGE</span>
+</div>
+
+<nav>
+<ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div class="hero-left">
+
+<h1>
+Powering Homes & Businesses With Precision
+</h1>
+
+<p>
+VoltEdge Electrical Services provides residential,
+commercial, and industrial electrical solutions
+including installations, repairs, upgrades,
+lighting systems, and emergency service calls.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#contact" class="btn btn-primary">
+Request Service
+</a>
+
+<a href="#services" class="btn btn-secondary">
+Explore Services
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-card">
+
+<img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1200&auto=format&fit=crop">
+
+<h3>
+Licensed Electrical Experts
+</h3>
+
+<p>
+Reliable electrical contractors delivering safe,
+efficient, and code-compliant electrical solutions
+for residential and commercial properties.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features">
+
+<div class="container">
+
+<div class="features-grid">
+
+<div class="feature-box">
+
+<div class="feature-icon">?</div>
+
+<h3>24/7 Emergency Service</h3>
+
+<p>
+Rapid electrical troubleshooting and emergency repairs
+available day or night.
+</p>
+
+</div>
+
+<div class="feature-box">
+
+<div class="feature-icon">??</div>
+
+<h3>Panel Upgrades</h3>
+
+<p>
+Modern electrical panel replacements and power capacity upgrades.
+</p>
+
+</div>
+
+<div class="feature-box">
+
+<div class="feature-icon">??</div>
+
+<h3>Lighting Installation</h3>
+
+<p>
+Indoor, outdoor, landscape, and energy-efficient LED lighting solutions.
+</p>
+
+</div>
+
+<div class="feature-box">
+
+<div class="feature-icon">??</div>
+
+<h3>Commercial Projects</h3>
+
+<p>
+Professional electrical services for offices,
+retail stores, and industrial facilities.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Professional Electrical Services
+</h2>
+
+<p>
+Comprehensive electrical solutions designed for safety,
+performance, and long-term reliability.
+</p>
+
+</div>
+
+<div class="services-layout">
+
+<div class="service-panel">
+
+<img src="https://images.unsplash.com/photo-1555963966-b7ae5404b6ed?q=80&w=1200&auto=format&fit=crop">
+
+<div class="service-content">
+
+<h3>Residential Electrical</h3>
+
+<p>
+Electrical repairs, wiring upgrades, ceiling fans,
+outlet installation, smart home systems, and inspections.
+</p>
+
+</div>
+
+</div>
+
+<div class="service-panel">
+
+<img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=1200&auto=format&fit=crop">
+
+<div class="service-content">
+
+<h3>Commercial Electrical</h3>
+
+<p>
+Commercial wiring, lighting systems,
+maintenance contracts, and electrical infrastructure upgrades.
+</p>
+
+</div>
+
+</div>
+
+<div class="service-panel">
+
+<img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop">
+
+<div class="service-content">
+
+<h3>Generator Installation</h3>
+
+<p>
+Backup generator systems and emergency power solutions
+for homes and businesses.
+</p>
+
+</div>
+
+</div>
+
+<div class="service-panel">
+
+<img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop">
+
+<div class="service-content">
+
+<h3>EV Charging Stations</h3>
+
+<p>
+Electric vehicle charging station installation
+for residential and commercial properties.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROCESS -->
+
+<section class="process" id="process">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Simple & Reliable Service Process
+</h2>
+
+<p>
+From consultation to completion,
+our electricians ensure efficient and professional service.
+</p>
+
+</div>
+
+<div class="process-timeline">
+
+<div class="step">
+
+<div class="step-number">1</div>
+
+<h3>Consultation</h3>
+
+<p>
+Discuss your electrical needs and receive a detailed estimate.
+</p>
+
+</div>
+
+<div class="step">
+
+<div class="step-number">2</div>
+
+<h3>Planning</h3>
+
+<p>
+Our team develops a safe and code-compliant service plan.
+</p>
+
+</div>
+
+<div class="step">
+
+<div class="step-number">3</div>
+
+<h3>Installation</h3>
+
+<p>
+Professional electricians complete the project efficiently.
+</p>
+
+</div>
+
+<div class="step">
+
+<div class="step-number">4</div>
+
+<h3>Final Testing</h3>
+
+<p>
+Complete inspection and testing ensure optimal performance.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<div class="contact-layout">
+
+<div class="contact-sidebar">
+
+<h3>
+Contact VoltEdge
+</h3>
+
+<p><strong>Phone:</strong> (555) 555-8844</p>
+
+<p><strong>Email:</strong> support@voltedgeelectric.com</p>
+
+<p><strong>Location:</strong> Louisiana, USA</p>
+
+<p><strong>Hours:</strong> Mon-Sun • 24/7 Emergency Service</p>
+
+<p>
+Schedule electrical repairs, installations,
+upgrades, or emergency services today.
+</p>
+
+</div>
+
+<div class="contact-form">
+
+<h3>
+Request Electrical Service
+</h3>
+
+<form>
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="tel" placeholder="Phone Number">
+
+<textarea placeholder="Describe your electrical project"></textarea>
+
+<button type="submit" class="btn btn-primary">
+Submit Request
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 VoltEdge Electrical Services. All Rights Reserved.
+</p>
+
+</footer>
+
+</body>
+</html>

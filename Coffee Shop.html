@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velvet Roast Coffee</title>
+
+<style>
+
+/* ===== RESET ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background:#f8f5f1;
+    color:#2d241d;
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+/* ===== HEADER ===== */
+
+header{
+    position:absolute;
+    width:100%;
+    top:0;
+    left:0;
+    z-index:100;
+    padding:30px 0;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-size:2rem;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#d6a45c;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+nav a{
+    color:white;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#d6a45c;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    background:#1f140d;
+}
+
+.hero-left{
+    display:flex;
+    align-items:center;
+    padding:80px;
+    background:#2a1a11;
+    color:white;
+}
+
+.hero-content h1{
+    font-size:5rem;
+    line-height:1;
+    margin-bottom:25px;
+}
+
+.hero-content p{
+    font-size:1.15rem;
+    color:#d6d3d1;
+    margin-bottom:35px;
+    max-width:550px;
+    line-height:1.8;
+}
+
+.hero-right{
+    background:
+    linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),
+    url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1600&auto=format&fit=crop')
+    center/cover;
+}
+
+.btn{
+    display:inline-block;
+    padding:16px 34px;
+    border-radius:50px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#d6a45c;
+    color:#2d241d;
+}
+
+.btn-primary:hover{
+    background:#e7b66e;
+    transform:translateY(-3px);
+}
+
+/* ===== EXPERIENCE ===== */
+
+.experience{
+    padding:110px 0;
+    background:white;
+}
+
+.experience-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:40px;
+    align-items:center;
+}
+
+.experience-image img{
+    border-radius:25px;
+    height:500px;
+    object-fit:cover;
+    width:100%;
+}
+
+.experience-content h2{
+    font-size:3.5rem;
+    margin-bottom:25px;
+}
+
+.experience-content p{
+    color:#5b524a;
+    margin-bottom:22px;
+    line-height:1.9;
+}
+
+/* ===== MENU ===== */
+
+.menu{
+    background:#2a1a11;
+    color:white;
+    padding:110px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title h2{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:#d6d3d1;
+    max-width:700px;
+    margin:auto;
+}
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.menu-card{
+    background:#3a2418;
+    border-radius:22px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.menu-card:hover{
+    transform:translateY(-8px);
+}
+
+.menu-card img{
+    height:250px;
+    width:100%;
+    object-fit:cover;
+}
+
+.menu-content{
+    padding:28px;
+}
+
+.menu-content h3{
+    font-size:1.6rem;
+    margin-bottom:12px;
+}
+
+.menu-content p{
+    color:#d6d3d1;
+    margin-bottom:15px;
+}
+
+.price{
+    font-size:1.3rem;
+    font-weight:700;
+    color:#d6a45c;
+}
+
+/* ===== BANNER ===== */
+
+.banner{
+    background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url('https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1600&auto=format&fit=crop')
+    center/cover fixed;
+
+    padding:130px 20px;
+    text-align:center;
+    color:white;
+}
+
+.banner h2{
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+.banner p{
+    max-width:700px;
+    margin:auto;
+    font-size:1.1rem;
+    color:#e7e5e4;
+}
+
+/* ===== CONTACT ===== */
+
+.contact{
+    padding:110px 0;
+    background:#f8f5f1;
+}
+
+.contact-wrapper{
+    background:white;
+    border-radius:30px;
+    overflow:hidden;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.contact-info{
+    background:#2a1a11;
+    color:white;
+    padding:60px;
+}
+
+.contact-info h3{
+    font-size:2.5rem;
+    margin-bottom:25px;
+}
+
+.contact-info p{
+    margin-bottom:18px;
+    color:#d6d3d1;
+}
+
+.contact-form{
+    padding:60px;
+}
+
+.contact-form h3{
+    font-size:2.2rem;
+    margin-bottom:25px;
+}
+
+form input,
+form textarea{
+    width:100%;
+    padding:16px;
+    margin-bottom:18px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-family:inherit;
+}
+
+form textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    background:#1f140d;
+    color:#c4b5a5;
+    text-align:center;
+    padding:30px 20px;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:950px){
+
+.hero{
+    grid-template-columns:1fr;
+}
+
+.hero-right{
+    min-height:450px;
+}
+
+.contact-wrapper{
+    grid-template-columns:1fr;
+}
+
+.hero-content h1{
+    font-size:3.5rem;
+}
+
+.banner h2{
+    font-size:2.8rem;
+}
+
+.experience-content h2{
+    font-size:2.5rem;
+}
+
+nav ul{
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.hero-left{
+    padding:60px 30px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+VELVET<span>ROAST</span>
+</div>
+
+<nav>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#menu">Menu</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-left">
+
+<div class="hero-content">
+
+<h1>
+Freshly Brewed Coffee & Handmade Pastries
+</h1>
+
+<p>
+Experience artisan coffee, specialty espresso drinks,
+and a warm café atmosphere designed for coffee lovers.
+</p>
+
+<a href="#menu" class="btn btn-primary">
+View Menu
+</a>
+
+</div>
+</div>
+
+<div class="hero-right"></div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section class="experience" id="about">
+
+<div class="container">
+
+<div class="experience-grid">
+
+<div class="experience-image">
+
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+<div class="experience-content">
+
+<h2>
+A Premium Coffee Experience
+</h2>
+
+<p>
+Velvet Roast combines expertly roasted coffee beans,
+specialty drinks, and handcrafted pastries in a relaxing,
+modern café environment.
+</p>
+
+<p>
+Whether you need a morning espresso,
+an afternoon latte, or a quiet workspace,
+our coffee shop delivers quality in every cup.
+</p>
+
+<a href="#contact" class="btn btn-primary">
+Reserve A Table
+</a>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+<!-- MENU -->
+
+<section class="menu" id="menu">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Featured Coffee Menu</h2>
+
+<p>
+Crafted using premium coffee beans and fresh ingredients.
+</p>
+
+</div>
+
+<div class="menu-grid">
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop">
+
+<div class="menu-content">
+
+<h3>Signature Espresso</h3>
+
+<p>
+Rich espresso with a smooth crema and bold flavor profile.
+</p>
+
+<div class="price">$4.50</div>
+
+</div>
+</div>
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=1200&auto=format&fit=crop">
+
+<div class="menu-content">
+
+<h3>Caramel Latte</h3>
+
+<p>
+Fresh espresso blended with steamed milk and caramel.
+</p>
+
+<div class="price">$5.95</div>
+
+</div>
+</div>
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop">
+
+<div class="menu-content">
+
+<h3>Cold Brew Coffee</h3>
+
+<p>
+Slow-steeped cold brew with smooth low-acid flavor.
+</p>
+
+<div class="price">$4.95</div>
+
+</div>
+</div>
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?q=80&w=1200&auto=format&fit=crop">
+
+<div class="menu-content">
+
+<h3>Fresh Pastries</h3>
+
+<p>
+Croissants, muffins, danishes, and artisan baked goods.
+</p>
+
+<div class="price">$3.50</div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BANNER -->
+
+<section class="banner">
+
+<h2>
+Coffee Crafted For Every Moment
+</h2>
+
+<p>
+Relax, recharge, and enjoy handcrafted coffee drinks
+made fresh daily by experienced baristas.
+</p>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<div class="contact-wrapper">
+
+<div class="contact-info">
+
+<h3>Visit Velvet Roast</h3>
+
+<p><strong>Phone:</strong> (555) 555-7721</p>
+
+<p><strong>Email:</strong> hello@velvetroast.com</p>
+
+<p><strong>Location:</strong> Louisiana, USA</p>
+
+<p><strong>Hours:</strong> Mon-Sun • 6AM - 9PM</p>
+
+<p>
+Stop by for premium coffee, artisan pastries,
+and a relaxing café atmosphere.
+</p>
+
+</div>
+
+<div class="contact-form">
+
+<h3>Send A Message</h3>
+
+<form>
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<textarea placeholder="Your message"></textarea>
+
+<button type="submit" class="btn btn-primary">
+Submit
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 Velvet Roast Coffee Shop. All Rights Reserved.
+</p>
+
+</footer>
+
+</body>
+</html>
